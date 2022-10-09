@@ -1,0 +1,65 @@
+.cdiv{
+    text-align:center;
+    padding:3%;
+    border:thin solid black;
+    max-width: 467px;
+    margin: 40px auto;
+  }
+
+  .cinput{
+    display: block;
+    
+  }
+  .clabel{
+    cursor:pointer;
+  }
+  .imageName{
+    color:green;
+  }
+
+  .button {
+    margin:100px;
+    border: none;
+    border-radius: 8px;
+    background-color: brown;
+    margin: auto;
+  }
+
+  .container{
+    margin: auto;
+    padding: 30px;
+  }
+
+  .uploadbox{
+    font-size: 16px;
+    background-color: white;
+    border-radius: 50px;
+    box-shadow: 5px 5px 10px black;
+    width: 350px;
+  }
+
+  ::-webkit-file-upload-button{
+    color: white;
+    background-color: #206a5d;
+    padding: 10px;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 1px 0 1px 1px black;
+    outline: none;
+
+  }
+
+  ::-webkit-file-upload-button:hover{
+    background-color: #438a5e;
+  }
+
+  .submit{
+    color: white;
+    background-color: #206a5d;
+    padding: 10px;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 1px 0 1px 1px black;
+    outline: none;
+    margin: 10px;
+  }
