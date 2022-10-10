@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import Row from "./Row";
+import Row2 from "./Row2";
 import { useState, useEffect } from "react";
 import Pagination from "./../pagination/Pagination";
 import classes from './Table.module.css'
@@ -13,7 +14,6 @@ const ck = (data, text) => {
 
 const Table = (props) => {
   const [currentPage, setCurrentPage] = useState(1);
-
   const filteredData = Object.keys(props.data)
     .filter((d) => {
       return ck(props.data[d], props.text);
@@ -21,12 +21,21 @@ const Table = (props) => {
     .map((d) => {
       return <Row key={d} data={props.data[d]} />;
     });
+
+    const filteredData2 = Object.keys(props.data2)
+    .filter((d) => {
+      return d.includes(props.text.toUpperCase().trim());
+    })
+    .map((d) => {
+      return <Row2 key={d}  tab = {d} supp = {Object.keys(props.data2[d])[0]} data={props.data2[d]} />;
+    });
+
     let currentTableData;
   
     currentTableData = useMemo(() => {
       const firstPageIndex = (currentPage - 1) * PageSize;
       const lastPageIndex = firstPageIndex + PageSize;
-      return filteredData.slice(firstPageIndex, lastPageIndex);
+      return filteredData2.slice(firstPageIndex, lastPageIndex);
     }, [currentPage,filteredData]);
   
     useEffect(() => {setCurrentPage(1)},[props.text])
@@ -43,6 +52,7 @@ const Table = (props) => {
               <tr>
                 <th scope="col">Name</th>
                 <th scope="col">Batch</th>
+                <th scope="col">Supplier</th>
                 <th scope="col">Stock</th>
                 <th scope="col">Deal</th>
                 <th scope="col">Free</th>
