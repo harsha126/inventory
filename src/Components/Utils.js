@@ -20,9 +20,9 @@ const transformData = (data) => {
       stock = stock + +row.stock;
       mrp = Math.max(mrp, +row.mrp);
       rate = Math.max(rate, +row.rate);
-      if (exp === null) exp = new Date(row.exp);
+      if (exp === null) exp = new Date(row.exp.trim());
       else {
-        exp = new Date(row.exp) > exp ? new Date(row.exp) : exp;
+        exp = new Date(row.exp.trim()) > exp ? new Date(row.exp.trim()) : exp;
       }
       if (ratio > +row.free / +row.deal) {
         free = row.free;
@@ -57,7 +57,7 @@ const processCSV = (str, delim = ",") => {
   const newArray = rows.map((row) => {
     const values = row.split(delim);
     const eachObject = headers.reduce((obj, header, i) => {
-      obj[header] = values[i];
+      obj[header] = values[i].trim();
       return obj;
     }, {});
     return eachObject;

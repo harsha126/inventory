@@ -19,8 +19,8 @@ function App() {
       setCsvArray(transformData(newArray));
     };
     reader.readAsText(data);
-    setIsSubmitted(true);
     window.scroll(0, 1000);
+    setIsSubmitted(true);
   };
 
   const textChangeHandler = (text) => {

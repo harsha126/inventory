@@ -13,7 +13,6 @@ const Row = (props) => {
   const displayRow = props.data.find((x) => {
     return x["batch"] === batch;
   });
-  // console.log(displayRow);
 
   const changeHandler = (event) => {
     setBatch(event.target.value);
@@ -22,9 +21,7 @@ const Row = (props) => {
   let date;
   try {
     date = displayRow["exp"].toDateString();
-    // console.log(displayRow["exp"],date);
   } catch (error) {
-    console.log(error.message);
     let newDate = new Date(displayRow["exp"].trim());
     date = newDate.toDateString();
   }
